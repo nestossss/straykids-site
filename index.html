@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stray Kids</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="script/tilt.js"></script>
+</head>
+<body>
+
+    <header>
+
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+                <li class="nav-item"><a href="membros.html" class="nav-link">Membros</a></li>
+                <li class="nav-item"><a href="postagens.html" class="nav-link">Postagens</a></li>
+                <li class="nav-item"><a href="events.html" class="nav-link">Eventos</a></li>
+            </ul>
+            <div class="hamburguer">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+        </nav>
+        <script src="script/navbar.js"></script>
+    </header>
+
+    <div id="estrelas_fundo">
+
+        <div class="ins">
+
+          <img src="fotos/Stray_Kids_5-Star.png" class="album" loading="lazy">
+
+            <div class="info">
+                <h3 id="nv-album"> Novo <br class="br-mobile">álbum!</h3>
+                <p>02.06.2023 FRI</p>
+                <button id="btn1">Carrinho</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="fundo_cor">
+
+        <div class="discografia">
+          
+            <div class="albuns">
+              <div class="albumm">
+                <img src="fotos\maxident.jpg" alt="Álbum 1" loading="lazy">
+
+              </div>
+              <div class="albumm">
+                <img src="fotos\maniac.jpg" alt="Álbum 2" loading="lazy">
+
+              </div>
+              <div class="albumm">
+                <img src="fotos\noeasy.jpg" alt="Álbum 3" loading="lazy">
+                
+              </div>
+              <div class="albumm">
+                <img src="fotos\teh sound.png" alt="Álbum 3" loading="lazy">
+
+              </div>
+              <div class="albumm">
+                <img src="fotos\in life.png" alt="Álbum 3" loading="lazy">
+              
+              </div>
+              <div class="albumm">
+                <img src="fotos\all in.png" alt="Álbum 3" loading="lazy">
+
+              </div>
+              <div class="albumm">
+                <img src="fotos/circus.png" alt="Álbum 3" loading="lazy">
+
+              </div>
+              <div class="albumm">
+                <img src="fotos/Miroh.png" alt="Álbum 3" loading="lazy">
+
+              </div>
+              <div class="albumm">
+                <img src="fotos/stray-kids-replay.png" alt="Álbum 3" loading="lazy">
+              </div>
+            </div>
+            <div class="arrow">
+                <button id="prevBtn">←</button>
+                <h3 class="discogfia">DISCOGRAFIA</h3>
+                <button id="nextBtn">→</button>
+              </div>
+          </div>
+          
+
+    </div>
+
+      <video class="byorl" autoplay loop muted plays-inline>
+        <source src="fotos\Stray Kids _특(S-Class)_ M_V(720P_HD).mp4">
+      </video>
+    <footer> 
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>JYP - Todos os direitos reservados &copy; 2023</p>
+                <ul class="footer-links">
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+        </footer>
+    </footer>
+
+    <script>
+
+
+    const elementoAlbum = document.querySelector('.album');
+    VanillaTilt.init(elementoAlbum);
+
+    const albumContainer = document.querySelector(".albuns");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let scrollAmount = 0;
+
+const scrollLeft = () => {
+  scrollAmount -= 700;
+  if (scrollAmount < 0) {
+    scrollAmount = 0;
+  }
+  albumContainer.style.transform = `translateX(-${scrollAmount}px)`;
+};
+
+const scrollRight = () => {
+  scrollAmount += 700;
+  if (scrollAmount > albumContainer.scrollWidth - albumContainer.clientWidth) {
+    scrollAmount = albumContainer.scrollWidth - albumContainer.clientWidth;
+  }
+  albumContainer.style.transform = `translateX(-${scrollAmount}px)`;
+};
+
+prevBtn.addEventListener("click", scrollLeft);
+nextBtn.addEventListener("click", scrollRight);
+
+    </script>
+    
+</body>
+</html>

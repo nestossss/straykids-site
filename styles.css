@@ -1,5 +1,6 @@
 *{
   user-select: none;
+  -webkit-user-drag: none;
   font-family: 'Poppins', sans-serif;
 }
 body {
@@ -14,6 +15,10 @@ button{
   padding: 0;
   background-color: none;
   border: none;
+}
+a{
+  text-decoration: none;
+  color: black
 }
 
 /*---- HEADER ----*/
@@ -115,6 +120,10 @@ header {
   flex-direction: column; 
   align-items: center; 
   margin-left: 5em;
+}
+
+.YouTube{
+  display: none;
 }
 
 @keyframes slidein {
@@ -231,6 +240,14 @@ header {
   justify-content: space-between;
 }
 
+textarea {
+  resize: none;
+}
+
+#comment {
+  margin-bottom: 20px;
+}
+
 .post-date {
   font-size: 9px;
   font-weight: bold;
@@ -260,12 +277,6 @@ header {
 
 .post-comments {
   margin-top: 10px;
-}
-
-.comment {
-  font-size: 12px;
-  color: #888;
-  margin-bottom: 5px;
 }
 
 .post-big {
@@ -363,7 +374,6 @@ header {
 }
 
 .like-button.active {
-  color: rgb(0, 0, 0);
   animation: bounce 0.5s ease-in-out;
 }
 
@@ -376,11 +386,17 @@ header {
   }
 }
 
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+  
+}
 /* ---- MEMBROS ---- */
 
 #membros-banner{
   width: 100%;
-  height: 32em;
+  height: fit-content;
   overflow: hidden;
 }
 
@@ -392,7 +408,7 @@ header {
   display: flex;
   flex-wrap: nowrap;
   width: 400%;
-  height: 32em;
+  height: 100%;
   transition: 1.5s;
 }
 
@@ -401,6 +417,7 @@ header {
   justify-content: center;
   position: relative;
   top: -50px;
+  margin-bottom: -22px;
 }
 .banner-btn{
   display: block;
@@ -460,7 +477,7 @@ header {
 
 .membros-banner-img{
   width: 25%;
-  height: 32em;
+  height: 100%;
 }
 .membros-banner-img img{
   width: 100%;
@@ -476,15 +493,15 @@ header {
   align-items: center;
   background-color: black;
   height: fit-content;
-  margin-bottom: -12em;
+  margin-bottom: -8em;
 }
 #video-reality{
   width: 100%;
   height: 100%;
 }
 #reality-img{
-  width: 50em;
-  height: 34em;
+  width: 75vw;
+  height: 47.25vw;
 }
 #reality-img img{
   width: 100%;
@@ -493,24 +510,24 @@ header {
 #reality-logo{
   width: fit-content;
   position: relative;
-  right: -80%;
+  right: -62vw;
   z-index: 100;
-  width: 16em;
-  top: -8em;
+  width: 20vw;
+  top: -8vw;
 }
 #reality-logo img{
   width: 100%;
 }
 #radial-gradient{
   width: 100%;
-  height: 28em;
+  height: 20em;
   background-image: radial-gradient(ellipse at center, #403299 60%, transparent );
   filter: blur(50px);
   position: relative;
 }
 #reality-concept{
   position: relative;
-  top: -22em;
+  top: -16em;
   margin-bottom: -18em;
   text-align: center;
   font-size: larger;
@@ -525,37 +542,44 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(fotos/Fundo_estlas.jpg);
-  background-repeat: repeat;
-  background-size: contain;
+  background-image: url(fotos/Estrelas_fundoG.png);
+  background-size: cover;
 }
 #titulo-info{
-  margin-top: 6em;
+  margin-top: 1.6em;
   font-size: 2.6em;
   display:inline-block;
   color: #ffffff;
   font-weight: 600;
 }
 #grid-membros{
-  padding: 6em;
+  padding-top: 4em;
+  padding-bottom: 4em;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6em;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4em;
+  column-gap: 6em;
   background-color: none;
 }
 
 .membro-perfil{
-  width: 22vw;
+  cursor: pointer;
+  width: 16vw;
   height: auto;
   background-color: #000000;
+  transition: ease 0.2s;
+}
+.membro-perfil:hover{
+  transform: scale(104%);
+  transition: ease 0.2s;
 }
 .membro-perfil img{
   width: 100%;
 }
 .membro-perfil p{
   font-size: 1.8rem;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
   color:rgb(255, 255, 255);
   font-weight: 500;
 }
@@ -575,35 +599,49 @@ header {
 
 .membro-selecionado{
   display: none;
+  margin-top: 2em;
   color: white;
-
 }
 .membro-selecionado img{
-  width: 25vw;
+  width: 18em;
   
 }
 .info-selecionado{
   margin: 1em;
-  margin: 0;
+  margin-left: 2em;
+  margin-right: 0;
   text-shadow:  #745EFF inset;
 }
 
 
-.info-selecionado p, .info-selecionado a, .info-selecionado h2{
-  margin: 1em;
-  background: radial-gradient(circle, #ff6b6b, #63d8f1);
+.info-selecionado h2{
+  margin: 1rem;
+  background: linear-gradient( #ffffff, #ffffff85 );
   -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
 }
+.info-selecionado h2 span{
+  background: linear-gradient( #745EFF, #483b9b13 );
+  -webkit-background-clip: text;
+            background-clip: text;
+}
 
 .info-selecionado h2{
+  font-size: 2em;
   margin-top: 0;
   margin-bottom:0;
 }
-
+.info-selecionado p, .info-selecionado a{
+  margin: 1rem;
+  color: rgba(255, 255, 255, 0.719);
+}
 .info-selecionado hr{
   margin-left: 1em;
+}
+.info-selecionado .velde{
+  font-weight: 400;
+  color: #06D802;
 }
 .aparecido{
   display: flex;
@@ -629,7 +667,40 @@ header {
   }
  }
 
+/*------- EVENTO --------*/
 
+
+.body-event {
+  font-family: Arial, sans-serif;
+  background-color: #222;
+  color: #f7f7f7;
+}
+
+.body-event h2{
+  color: #f7f7f7;
+  margin-bottom: 0.2rem;
+}
+
+.eventos {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.evento {
+  background-color: #333; 
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.evento:hover {
+  transform: translateY(-5px);
+  background-color: #745EFF;
+}
 
 /*------- FOOTER --------*/
 
@@ -672,7 +743,29 @@ header {
 }
 
   /*Responsivo*/
-  
+
+  @media only screen and (max-width: 1110px)
+  {
+    #grid-membros{
+      
+      grid-template-columns: repeat(3, 1fr);
+      gap: 80px;
+      
+    }
+    .membro-perfil{
+      width: 28vw;
+    }
+    .membro-perfil img{
+      width: 100%;
+    }
+    .membro-perfil p{
+      font-size: 1.6rem;
+    }
+    .membro-perfil{
+      width: 20vw;
+    }
+
+  }
   @media only screen and (max-width: 800px)
   {
     .br-mobile{
@@ -683,8 +776,9 @@ header {
       flex-direction: column ;
     }
 
-    .nv-album{
-       font-size: 1em;     
+    
+    #nv-album{
+      font-size: 2em;
     }
 
     .ins img{
@@ -693,6 +787,12 @@ header {
     .info{
       margin-left: 0;
     }
+    
+    .byorl{
+      display: none;
+    }
+
+    
 
     .hamburguer{
       position: relative;
@@ -738,6 +838,12 @@ header {
     .nav-item{
       margin: 16px 0px;
     }
+
+    .YouTube{
+      display: block;
+      height: fit-content;
+      width: 100%;
+    }
     
     .nav-menu.active{
       top: 0;
@@ -745,11 +851,52 @@ header {
     #grid-membros{
       
       grid-template-columns: repeat(2, 1fr);
-      gap: 35px;
+      gap: 8vw;
       
     }
     .membro-perfil{
-      width: 35vw;
+      width: 34vw;
+      height: auto;
+      background-color: #000000;
+    }
+    .membro-perfil img{
+      width: 100%;
+    }
+    .membro-perfil p{
+      font-size: 1.6rem;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      color:rgb(255, 255, 255);
+      font-weight: 500;
+    }
+  }
+  @media only screen and (max-width:700px){
+    
+    .membro-selecionado{
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+    .info-selecionado{
+      font-size: 0.7em;
+      margin: 0;
+      padding: 0;
+    }
+    .info-selecionado p, .info-selecionado h2, .info-selecionado hr{
+      margin-left: 0;
+    }
+    
+    .perfil-selecionado{
+      width: 70vw;
+    }
+    .membro-selecionado img{
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width:560px){
+    
+    .membro-perfil{
+      width: 40vw;
       height: auto;
       background-color: #000000;
     }

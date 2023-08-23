@@ -105,6 +105,7 @@ header {
   animation-duration: 1s;
   animation-delay: 0.5s;
   animation-fill-mode: both;
+  margin-left: 50px;
 }
 
 .albumm {
@@ -225,6 +226,12 @@ header {
 .byorl{
   height: fit-content;
   width: 100%;
+}
+
+.Vds{
+  height: 120%;
+  width: 100%;
+  margin-bottom: -7px;
 }
 
 /*---- POSTAGENS ----*/
@@ -374,7 +381,7 @@ textarea {
 }
 
 .like-button.active {
-  animation: bounce 0.5s ease-in-out;
+  animation: bounce 0.3s ease-in-out;
 }
 
 @keyframes bounce {
@@ -382,7 +389,7 @@ textarea {
       transform: scale(1);
   }
   50% {
-      transform: scale(1.3);
+      transform: scale(1.4);
   }
 }
 
@@ -390,8 +397,26 @@ textarea {
   .main-container {
     flex-direction: column;
   }
-  
+  .left-column {
+    display: none;
+  }
 }
+@media (max-width: 1000px) {
+  .posts-imagem {
+    width: 309px;
+    height: 175x;
+  }
+  .post {
+    width: 309px;
+    height: 175px;
+
+  }
+  .left-column h2 {
+    font-size: 52;
+  }
+}
+
+  
 /* ---- MEMBROS ---- */
 
 #membros-banner{
@@ -550,7 +575,7 @@ textarea {
   font-size: 2.6em;
   display:inline-block;
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 400;
 }
 #grid-membros{
   padding-top: 4em;
@@ -594,7 +619,6 @@ textarea {
 
 .aparecido{
   opacity: 1;
-  max-height: 500px;
 }
 
 .membro-selecionado{
@@ -774,11 +798,16 @@ textarea {
     .ins {
       display: flex;
       flex-direction: column ;
+      margin: 0% 0 0 0;
     }
 
+    .album{
+      width: 19vh;
+      height: auto;
+    }
     
     #nv-album{
-      font-size: 2em;
+      font-size: 4.5em;
     }
 
     .ins img{
@@ -791,8 +820,6 @@ textarea {
     .byorl{
       display: none;
     }
-
-    
 
     .hamburguer{
       position: relative;
@@ -841,7 +868,12 @@ textarea {
 
     .YouTube{
       display: block;
-      height: fit-content;
+      height: 100%;
+      width: 100%;
+    }
+
+    .Vds{
+      height: 80vh;
       width: 100%;
     }
     
@@ -885,12 +917,14 @@ textarea {
     .info-selecionado p, .info-selecionado h2, .info-selecionado hr{
       margin-left: 0;
     }
-    
     .perfil-selecionado{
       width: 70vw;
     }
     .membro-selecionado img{
       width: 100%;
+    }
+    #titulo-info{
+      margin-top: 0.6em;
     }
   }
   @media only screen and (max-width:560px){
@@ -905,6 +939,35 @@ textarea {
     }
     .membro-perfil p{
       font-size: 1.2rem;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      color:rgb(255, 255, 255);
+      font-weight: 500;
+    }
+    .info-selecionado{
+      font-size: 0.7em;
+      margin: 0;
+      padding: 0;
+    }
+    
+  }
+  @media only screen and (max-width: 300px){
+    #grid-membros{
+      
+      grid-template-columns: 1fr;
+      gap: 8vw;
+      
+    }
+    .membro-perfil{
+      width: 75vw;
+      height: auto;
+      background-color: #000000;
+    }
+    .membro-perfil img{
+      width: 100%;
+    }
+    .membro-perfil p{
+      font-size: 1.4rem;
       margin-top: 0.5em;
       margin-bottom: 0.5em;
       color:rgb(255, 255, 255);
